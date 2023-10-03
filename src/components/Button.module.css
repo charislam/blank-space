@@ -1,0 +1,19 @@
+.button {
+  --local-color: var(--stone-11);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-6);
+  letter-spacing: var(--font-letterspacing-1);
+  text-decoration: none;
+  padding: var(--size-2) var(--size-4);
+  color: var(--local-color);
+  border: var(--border-size-2) solid var(--stone-9);
+  border-radius: var(--radius-2);
+  transition:
+    background-color var(--transition-timing-normal),
+    color var(--transition-timing-normal);
+
+  &:is(:hover, :active, :focus-visible) {
+    background-color: var(--local-color);
+    color: var(--stone-2);
+  }
+}

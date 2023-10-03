@@ -1,5 +1,9 @@
 @import "open-props/postcss/style";
 
+:root {
+  --transition-timing-normal: 300ms;
+}
+
 html,
 body {
   background-color: var(--stone-3);
@@ -7,4 +11,8 @@ body {
 
 body {
   margin: 0;
+}
+
+button {
+  cursor: pointer;
 }

@@ -5,7 +5,7 @@ import { TextInput } from "../components/TextInput";
 import { Button } from "../components/Button";
 import { useNavigate } from "@solidjs/router";
 
-export const Login: Component = () => {
+export const SignUp: Component = () => {
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
   const [error, setError] = createSignal("");
@@ -14,14 +14,14 @@ export const Login: Component = () => {
   async function signup(e: MouseEvent) {
     e.preventDefault();
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email: email(),
       password: password(),
     });
     if (error) {
       setError(error.message);
     } else {
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     }
   }
 
@@ -40,7 +40,7 @@ export const Login: Component = () => {
           value={password()}
           setValue={(e) => setPassword(e.currentTarget.value)}
         />
-        <Button onClick={signup}>Login</Button>
+        <Button onClick={signup}>Sign up</Button>
       </form>
       <Show when={error()}>
         <p>{error()}</p>
